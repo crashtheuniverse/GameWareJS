@@ -31,7 +31,20 @@ GW.AnimationManager.prototype = {
 		
 		var node = this.controllersHead;
 		while(node) {
+			
 			node.update(dt);
+			
+			if(node.removeOnCompletion && node.complete) {
+				
+				if(node === this.controllersHead) {
+					this.controllersHead = node.next;
+				}
+				else
+				{
+					node.prev.next = node.next;				
+				}
+			}
+			
 			node = node.next;
 		}
 	}

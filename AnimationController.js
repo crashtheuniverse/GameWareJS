@@ -8,7 +8,8 @@ GW.AnimationController = function(target, property, value, time) {
 	this.nv = value; 
 	this.cv = target[property];
 	this.t = time; 
-	this.ct = 0.0; 
+	this.ct = 0.0;
+	this.et = time; 
 	
 	var delta = this.nv - this.cv;
 	this.slope = delta / time;
@@ -30,7 +31,7 @@ GW.AnimationController.prototype = {
 		
 		if(this.ct >= this.t) {
 			this.cv = this.nv;
-			this.ct = this.time;
+			this.ct = this.et;
 			this.complete = true;
 		}
 		
