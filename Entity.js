@@ -11,6 +11,8 @@ GW.Entity.prototype = {
 	constructor: GW.Entity, 
 	
 	update: function(dt) {
-		this.sprite.update(dt);
+		if(this.sprite) {
+			this.sprite.update(dt);
+		}
 	}
 }
