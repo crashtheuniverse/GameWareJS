@@ -19,6 +19,8 @@ GW.EntityManager.prototype = {
 	},
 	
 	createEntity: function() {
-		return new GW.Entity();
+		var e = new GW.Entity();
+		this.entities.push(e);
+		return e;
 	} 
 }
